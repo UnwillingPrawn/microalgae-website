@@ -11,7 +11,7 @@
     <div class="col-6 col-md-4 col-lg-3">
       <a href="{{ url_for('group_detail', group_name=group.name) }}" class="text-decoration-none text-dark">
         <div class="card h-100 shadow-sm">
-          <img src="{{ group.thumbnail }}" class="card-img-top img-fluid rounded" alt="{{ group.name }}">
+          <img src="{{ url_for('static', filename='images/' ~ group.name ~ '/' ~ group.thumbnail) }}" class="card-img-top img-fluid rounded" alt="{{ group.name }}">
           <div class="card-body">
             <h5 class="card-title text-center text-dark">{{ group.name.capitalize() }}</h5>
           </div>
