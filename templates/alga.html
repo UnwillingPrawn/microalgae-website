@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ alga.name }}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1 class="mb-3">{{ alga.name }}</h1>
+  <p>{{ alga.description }}</p>
+
+  <!-- Wrap images in .photos container to enable zoom effect -->
+  <div class="photos row g-3">
+    {% for image_url in alga.images %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <img 
+        src="{{ image_url }}" 
+        alt="{{ alga.name }}" 
+        class="img-fluid rounded clickable-image" 
+        style="cursor: pointer;"
+        data-bs-toggle="modal" data-bs-target="#imageModal" 
+        data-bs-img="{{ image_url }}"
+        data-bs-alt="{{ alga.name }}"
+      >
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0">
+        <img src="" alt="" id="modalImage" class="img-fluid rounded" style="width: 100%; height: auto;">
+      </div>
+      <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Update modal image on thumbnail click
+  const imageModal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+
+  imageModal.addEventListener('show.bs.modal', event => {
+    const trigger = event.relatedTarget;
+    const imgSrc = trigger.getAttribute('data-bs-img');
+    const imgAlt = trigger.getAttribute('data-bs-alt');
+    modalImage.src = imgSrc;
+    modalImage.alt = imgAlt;
+  });
+</script>
+{% endblock %}

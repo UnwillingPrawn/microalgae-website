@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1 class="display-4 mb-4 text-center text-light">BIRC Pond Microalgae</h1>
+  
+  <div class="row g-3">
+    {% for group in groups %}
+    <div class="col-6 col-md-4 col-lg-3">
+      <a href="{{ url_for('group_detail', group_name=group.name) }}" class="text-decoration-none text-dark">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ group.thumbnail }}" class="card-img-top img-fluid rounded" alt="{{ group.name }}">
+          <div class="card-body">
+            <h5 class="card-title text-center text-dark">{{ group.name.capitalize() }}</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
