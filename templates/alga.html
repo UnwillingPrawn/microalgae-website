@@ -11,15 +11,15 @@
 
   <!-- Wrap images in .photos container to enable zoom effect -->
   <div class="photos row g-3">
-    {% for image_filename in alga.images %}
+    {% for image_url in alga.images %}
     <div class="col-6 col-md-4 col-lg-3">
       <img 
-        src="{{ url_for('static', filename='images/' ~ alga.group ~ '/' ~ image_filename) }}" 
+        src="{{ image_url }}" 
         alt="{{ alga.name }}" 
         class="img-fluid rounded clickable-image" 
         style="cursor: pointer;"
         data-bs-toggle="modal" data-bs-target="#imageModal" 
-        data-bs-img="{{ url_for('static', filename='images/' ~ alga.group ~ '/' ~ image_filename) }}"
+        data-bs-img="{{ image_url }}"
         data-bs-alt="{{ alga.name }}"
       >
     </div>
