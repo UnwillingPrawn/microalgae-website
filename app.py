@@ -9,15 +9,18 @@ app = Flask(__name__)
 
 # Dummy descriptions for known species (keep as is)
 descriptions = {
+    'astrionella': 'Astrionella is a genus of diatoms with star-shaped colonies. Its cells are elongated and connected at the ends, forming radiating patterns.',
     'bellerochea': 'A diatom with rectangular cells joined in chains.',
+    'chaetoceros': 'Chaetoceros is a genus of diatoms with elongated, chain-forming cells. Each cell has long, stiff spines called setae that extend outward, helping with buoyancy and protection.',
     'nitzschia': 'Pennate benthic diatom with large spines.',
-    'pleurosigma': 'Benthic diatom.',
-    'astrionella': 'Colonial diatom forming star-shaped colonies.',
-    'navicula': 'Common benthic diatom genus.',
+    'pleurosigma': 'Pleurosigma is a genus of pennate diatoms with elongated, slightly curved cells. Its silica shell features distinctive diagonal striations and a central raphe for movement.',
+    'thalassionema': 'Cells are usually in star-shaped or zigzagged chains. Cells are rectangular and have fine striations.',
+    'navicula': 'Common benthic diatom genus with boat-shaped, elongated cells. They have fine, parallel striations and a central raphe used for gliding movement.',
     'entomoneis': 'Elongated diatom with wing-like keels.',
     'scripsiella': 'A photosynthetic dinoflagellate.',
     'euplotes': 'Ciliated protozoan with large, distinctive caudal cirri.',
-    'nano': 'Green, non-motile spherical cells measuring between 2-5µm.',
+    'nannochloropsis': 'Green, non-motile spherical cells measuring between 2-5µm lacking flagella or complex external structures.',
+    'heterosigma': 'Heterosigma is a genus of golden-brown flagellated microalgae with a highly variable cell shape. Each cell has two unequal flagella and surface scales that give it a distinctive texture.',
     # Add more if needed
 }
 
