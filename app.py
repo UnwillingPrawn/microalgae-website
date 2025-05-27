@@ -86,8 +86,8 @@ def search():
                     'group': group
                 })
 
-    # Redirect if exact match found
-    exact_matches = [r for r in results if r['id'] == query]
+    # Redirect if exact match found (case-insensitive)
+    exact_matches = [r for r in results if r['id'].lower() == query.lower()]
     if len(exact_matches) == 1:
         return redirect(url_for('alga_detail', alga_id=query))
 
