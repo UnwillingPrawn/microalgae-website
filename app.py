@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import re
+import os
 
 # Import your image URLs dictionary from extras/image_links.py
 from extras.image_links import image_data
@@ -94,4 +95,5 @@ def search():
     return render_template('search_results.html', results=results, query=query)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
