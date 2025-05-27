@@ -18,9 +18,12 @@ descriptions = {
     'nannochloropsis': 'Green, non-motile spherical cells measuring between 2-5µm lacking flagella or complex external structures.',
     'navicula': 'Common benthic diatom genus with boat-shaped, elongated cells. They have fine, parallel striations and a central raphe used for gliding movement.',
     'nitzschia': 'Pennate benthic diatom with large spines.',
+    'oscillatoria': 'A filamentous cyanobacterium composed of long, unbranched chains of cylindrical cells stacked end to end. The filaments can oscillate or move back and forth.
     'pleurosigma': 'Pleurosigma is a genus of pennate diatoms with elongated, slightly curved cells. Its silica shell features distinctive diagonal striations and a central raphe for movement.',
     'scripsiella': 'A photosynthetic dinoflagellate.',
     'thalassionema': 'Cells are usually in star-shaped or zigzagged chains. Cells are rectangular and have fine striations.',
+    'thalassiosira': 'Thalassiosira is a genus of centric diatoms with circular, disc-shaped cells. The silica frustules feature radial symmetry and are often perforated with rows of areolae.'
+    'triceratium': 'Triceratium is a genus of diatoms characterized by its large, triangular-shaped, heavily silicified cells.'
 }
 def extract_species_name_from_url(url):
     # Extract filename from URL and get species name prefix (letters only)
