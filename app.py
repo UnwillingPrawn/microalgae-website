@@ -2,6 +2,9 @@ from flask import Flask, render_template, url_for, redirect, request
 import os
 import re
 
+# **NEW** import your image URLs from extras/image_links.py
+from extras.image_links import image_data
+
 app = Flask(__name__)
 
 # Dummy descriptions for known species (keep as is)
@@ -45,23 +48,21 @@ def group_detail(group_name):
 
 @app.route('/algae/<alga_id>')
 def alga_detail(alga_id):
-    base_folder = os.path.join(app.static_folder, 'images')
-    for group in os.listdir(base_folder):
-        group_folder = os.path.join(base_folder, group)
-        if not os.path.isdir(group_folder):
-            continue
-        images = []
-        for filename in os.listdir(group_folder):
-            if filename.lower().endswith(('.jpg', '.jpeg', '.png', '.gif')) and extract_species_name(filename) == alga_id:
-                images.append(filename)
-        if images:
+    alga_id_lower = alga_id.lower()
+
+    # Search image_data for images matching alga_id (species name) in any group
+    for group, urls in image_data.items():
+        # Filter images that contain alga_id in filename (case-insensitive)
+        matched_images = [url for url in urls if alga_id_lower in url.lower()]
+        if matched_images:
             return render_template('alga.html', alga={
                 'id': alga_id,
                 'name': alga_id.capitalize(),
-                'description': descriptions.get(alga_id, "No description available."),
-                'images': images,
+                'description': descriptions.get(alga_id_lower, "No description available."),
+                'images': matched_images,
                 'group': group
             })
+
     return f"No data found for {alga_id}", 404
 
 @app.route('/search')
