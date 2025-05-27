@@ -9,11 +9,22 @@
   <div class="row g-3">
     {% for group in groups %}
     <div class="col-6 col-md-4 col-lg-3">
-      <a href="{{ url_for('group_detail', group_name=group.name) }}" class="text-decoration-none text-dark">
+      <a href="{{ url_for('group_detail', group_name=group) }}" class="text-decoration-none text-dark">
         <div class="card h-100 shadow-sm">
-          <img src="{{ url_for('static', filename='images/' ~ group.name ~ '/' ~ group.thumbnail) }}" class="card-img-top img-fluid rounded" alt="{{ group.name }}">
+          {# Try to show a thumbnail from the first image in the group folder #}
+          {% set group_folder = 'images/' ~ group %}
+          {% set thumb_path = None %}
+          {% for ext in ['jpg', 'jpeg', 'png', 'gif'] %}
+            {% if (url_for('static', filename=group_folder ~ '/thumbnail.' ~ ext)) %}
+              {% set thumb_path = url_for('static', filename=group_folder ~ '/thumbnail.' ~ ext) %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {# Fallback if no thumbnail, use a generic placeholder #}
+          <img src="{{ thumb_path or url_for('static', filename='images/placeholder.png') }}" 
+               class="card-img-top img-fluid rounded" alt="{{ group }}">
           <div class="card-body">
-            <h5 class="card-title text-center text-dark">{{ group.name.capitalize() }}</h5>
+            <h5 class="card-title text-center text-dark">{{ group.capitalize() }}</h5>
           </div>
         </div>
       </a>
