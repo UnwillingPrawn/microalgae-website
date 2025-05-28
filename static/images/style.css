@@ -1,0 +1,24 @@
+/* Style for algal names in search results */
+.algal-group-title {
+  color: #2a5d34; /* Change to match your homepage group title color */
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Make search result images fully visible */
+.search-result-image {
+  opacity: 1 !important;
+  filter: none !important;
+  background-color: transparent;
+}
+
+/* Optional: Improve card contrast (if images appear faint on light cards) */
+.custom-card {
+  background-color: #f8f9fa; /* Light gray background for better contrast */
+}
+
+/* Optional: Reset highlight styling if search terms are wrapped in <mark> */
+mark {
+  background-color: transparent;
+  color: inherit;
+}
