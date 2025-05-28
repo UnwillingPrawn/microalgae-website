@@ -22,8 +22,8 @@ descriptions = {
     'pleurosigma': 'Pleurosigma is a genus of pennate diatoms with elongated, slightly curved cells. Its silica shell features distinctive diagonal striations and a central raphe for movement.',
     'scripsiella': 'A photosynthetic dinoflagellate.',
     'thalassionema': 'Cells are usually in star-shaped or zigzagged chains. Cells are rectangular and have fine striations.',
-    'thalassiosira': 'Thalassiosira is a genus of centric diatoms with circular, disc-shaped cells. The silica frustules feature radial symmetry and are often perforated with rows of areolae.'
-    'triceratium': 'Triceratium is a genus of diatoms characterized by its large, triangular-shaped, heavily silicified cells.'
+    'thalassiosira': 'Thalassiosira is a genus of centric diatoms with circular, disc-shaped cells. The silica frustules feature radial symmetry and are often perforated with rows of areolae.',
+    'triceratium': 'Triceratium is a genus of diatoms characterized by its large, triangular-shaped, heavily silicified cells.',
 }
 def extract_species_name_from_url(url):
     # Extract filename from URL and get species name prefix (letters only)
