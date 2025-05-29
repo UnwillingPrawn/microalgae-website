@@ -5,8 +5,8 @@ Search Results for "{{ query }}"
 {% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-  <h2 class="mb-4 text-light">Search Results for "{{ query }}"</h2>
+<div class="mt-4 px-3">
+  <h2 class="mb-4 text-light text-center">Search Results for "{{ query }}"</h2>
 
   {% if results %}
     <div class="row g-3">
@@ -27,6 +27,8 @@ Search Results for "{{ query }}"
     <p class="text-light text-center mt-3">No results found for "{{ query }}". Try another search.</p>
   {% endif %}
 
-  <a href="{{ url_for('home') }}" class="btn btn-outline-light mt-3">Back to Home</a>
+  <div class="text-center">
+    <a href="{{ url_for('home') }}" class="btn btn-outline-light mt-3">Back to Home</a>
+  </div>
 </div>
 {% endblock %}

@@ -41,17 +41,20 @@
       min-height: 80vh;
     }
 
+    /* Make gallery use Bootstrap grid for responsiveness */
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
     }
 
+    /* Update card styling for better responsiveness */
     .card {
       border: 1px solid #ccc;
       border-radius: 8px;
       padding: 10px;
-      width: 250px;
+      /* Remove fixed width, use 100% width for responsiveness */
+      width: 100%;
       min-height: 300px;
       display: flex;
       flex-direction: column;
@@ -66,6 +69,7 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
+    /* Make images responsive and contained */
     .card img, 
     .photos img {
       width: 100%;
@@ -83,27 +87,41 @@
       transform: scale(1.05);
     }
 
+    /* Photos container: flex-wrap with gap */
     .photos {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
+    /* Navigation spacing */
     nav {
       margin-bottom: 20px;
     }
+
+    /* Responsive input for search on small devices */
+    form input[type="search"] {
+      width: 150px;
+    }
+    @media (max-width: 576px) {
+      form input[type="search"] {
+        width: 100px;
+      }
+    }
+
   </style>
 
   {% block head %}{% endblock %}
 </head>
 <body>
-  <nav class="mb-3">
-    <a href="{{ url_for('home') }}" class="btn btn-primary me-2">Home</a>
+  <nav class="mb-3 d-flex flex-wrap align-items-center gap-2">
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Home</a>
     <button onclick="window.history.back()" class="btn btn-secondary">Back</button>
 
-    <!-- Optional Search Form -->
-    <form action="{{ url_for('search') }}" method="get" class="d-inline-block ms-3">
-      <input type="search" name="query" placeholder="Search species..." aria-label="Search" class="form-control d-inline-block" style="width: 200px;">
+    <!-- Search Form -->
+    <form action="{{ url_for('search') }}" method="get" class="d-inline-flex ms-auto" role="search">
+      <input type="search" name="query" placeholder="Search species..." aria-label="Search" class="form-control" style="max-width: 250px;">
+      <button type="submit" class="btn btn-outline-light ms-2">Search</button>
     </form>
   </nav>
 

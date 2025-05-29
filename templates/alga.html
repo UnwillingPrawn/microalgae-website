@@ -5,18 +5,18 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-4">
+<div class="mt-4">
   <h1 class="mb-3 text-light">{{ alga.name }}</h1>
   <p class="text-light">{{ alga.description }}</p>
 
-  <!-- Wrap images in .photos container to enable zoom effect -->
-  <div class="photos row g-3">
+  <!-- Responsive image grid using Bootstrap row/cols -->
+  <div class="row g-3 photos">
     {% for image_url in alga.images %}
-    <div class="col-6 col-md-4 col-lg-3">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
       <img 
         src="{{ image_url }}" 
         alt="{{ alga.name }}" 
-        class="img-fluid rounded clickable-image" 
+        class="img-fluid rounded clickable-image"
         style="cursor: pointer;"
         data-bs-toggle="modal" data-bs-target="#imageModal" 
         data-bs-img="{{ image_url }}"
@@ -27,7 +27,7 @@
   </div>
 </div>
 
-<!-- Bootstrap Modal -->
+<!-- Bootstrap Modal for image zoom -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" style="max-width: 90vw;">
     <div class="modal-content bg-transparent border-0">

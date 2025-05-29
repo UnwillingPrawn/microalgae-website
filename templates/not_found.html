@@ -3,14 +3,14 @@
 {% block title %}Not Found{% endblock %}
 
 {% block content %}
-<div class="container container-main mt-5 text-center text-light">
+<div class="mt-5 text-center text-light px-3">
   <h1 class="display-4">Oops! &#128533;</h1>
   <p class="lead">The page or item you are looking for could not be found.</p>
   <p>If you want, try searching below:</p>
 
-  <form action="{{ url_for('search') }}" method="get" class="d-flex justify-content-center mb-3">
-    <input type="search" name="query" placeholder="Search species..." aria-label="Search" class="form-control w-50" />
-    <button type="submit" class="btn btn-outline-light ms-2">Search</button>
+  <form action="{{ url_for('search') }}" method="get" class="d-flex justify-content-center mb-3 flex-column flex-sm-row align-items-center gap-2">
+    <input type="search" name="query" placeholder="Search species..." aria-label="Search" class="form-control" style="max-width: 300px;" />
+    <button type="submit" class="btn btn-outline-light">Search</button>
   </form>
 
   <a href="{{ url_for('home') }}" class="btn btn-outline-light mt-3">Back to Home</a>
