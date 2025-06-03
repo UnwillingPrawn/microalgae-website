@@ -46,7 +46,7 @@ def build_image_data():
 @app.route('/')
 def home():
     image_data = build_image_data()
-    groups = [{'name': group, 'thumbnail': image_data[group][0]} for group in image_data]
+    groups = [{'name': group, 'thumbnail': image_data[group][0]} for group in sorted(image_data)]
     return render_template('index.html', groups=groups)
 
 @app.route('/group/<group_name>')
@@ -61,7 +61,8 @@ def group_detail(group_name):
         if species not in species_dict:
             species_dict[species] = url  # Use first image as species thumbnail
 
-    return render_template('group.html', group_name=group_name, species_list=species_dict)
+    sorted_species = dict(sorted(species_dict.items()))
+    return render_template('group.html', group_name=group_name, species_list=sorted_species)
 
 @app.route('/algae/<alga_id>')
 def alga_detail(alga_id):
